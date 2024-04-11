@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "calm me down fire alarm/fire alarm-01",
+	"frame": {"x":1,"y":1,"w":42,"h":27},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":42,"h":27},
+	"sourceSize": {"w":42,"h":42}
+},
+{
+	"filename": "calm me down fire alarm/fire alarm-02",
+	"frame": {"x":45,"y":1,"w":42,"h":27},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":42,"h":27},
+	"sourceSize": {"w":42,"h":42}
+},
+{
+	"filename": "calm me down fire alarm/fire alarm-03",
+	"frame": {"x":89,"y":1,"w":42,"h":27},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":42,"h":27},
+	"sourceSize": {"w":42,"h":42}
+},
+{
+	"filename": "calm me down fire alarm/fire alarm-04",
+	"frame": {"x":133,"y":1,"w":42,"h":27},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":42,"h":27},
+	"sourceSize": {"w":42,"h":42}
+},
+{
+	"filename": "calm me down fire alarm/fire alarm-05",
+	"frame": {"x":177,"y":1,"w":42,"h":27},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":42,"h":27},
+	"sourceSize": {"w":42,"h":42}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "fire alarm.png",
+	"format": "RGBA8888",
+	"size": {"w":220,"h":29},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0ae91ca393b86acc29ac7ee84623f276:1ed753647055269bd7b6bfdfac58e40e:e35f5b5365a8e875e5220358a0835bfb$"
+}
+}

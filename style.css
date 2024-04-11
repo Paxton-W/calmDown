@@ -1,0 +1,19 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #444;
+}
+
+canvas {
+  margin: 0 auto;
+  display: block;
+}
+
+.body-div {
+  position: relative;
+  top: 5vh;
+  text-align: center;
+}
+@media {
+}
