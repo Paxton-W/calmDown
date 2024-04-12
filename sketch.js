@@ -29,6 +29,9 @@ let obj_player;
 let gameStatus = "standby";
 let userClickNewPosition = false;
 let gameAnxiousValue = 150;
+let gameAnxiousValue_post = 150;
+let gameAnxiousValue_change = ![];
+let gameAnxiousValue_change_diaplay_timer = 0;
 let gameAnxiousValueMax = 400;
 let gameTimeDuration = 0;
 let gameTimeStart = 0;
@@ -230,6 +233,7 @@ function setup() {
 }
 
 function draw() {
+  gameAnxiousValue_post = gameAnxiousValue;
   // image(img_bg, ww / 2, hh / 2, width, height);
   image(img_bgn, ww / 2, hh / 2, width, height);
   //objs
@@ -256,22 +260,10 @@ function draw() {
       alert("Unexpected error, please reload the page.");
       break;
     case "welcome":
-      //draw welcome popup window
-      // ci.textSize(7);
       image(img_page.start, ww / 2, hh / 2);
-      // ci.rect(ci.width / 2, ci.height / 2, ci.width / 2, ci.width / 2, ci.width * 0.02);
-      // ci.rect(ci.width / 2, ci.height / 2 + ci.height * 0.15, ci.width * 0.2, ci.height * 0.06);
-      // ci.text("PLAY", ci.width / 2, ci.height / 2 + ci.height * 0.15, ci.width * 0.2, ci.height * 0.06);
-      // image(cv_inte, ww / 2, hh / 2, ww, hh); //interface
       break;
     case "instruction":
-      //draw instrouction popup window
       image(img_page.rules, ww / 2, hh / 2);
-      // ci.textSize(7);
-      // ci.rect(ci.width / 2, ci.height / 2, ci.width / 2, ci.width / 2, ci.width * 0.02);
-      // ci.rect(ci.width / 2, ci.height / 2 + ci.height * 0.15, ci.width * 0.2, ci.height * 0.06);
-      // ci.text("START", ci.width / 2, ci.height / 2 + ci.height * 0.15, ci.width * 0.2, ci.height * 0.06);
-      // image(cv_inte, ww / 2, hh / 2, ww, hh); //interface
       break;
     case "play":
       //detect game over
@@ -484,7 +476,17 @@ function draw() {
   image(img_obj.arrow, 0, 0);
   pop();
   //anxious value text
-  text(gameAnxiousValue, ww * 0.493, hh * 0.95);
+  push();
+  if (gameAnxiousValue > 300) {
+    if (frameCount % 20 < 10) {
+      fill(255, 120, 120);
+      text(gameAnxiousValue, ww * 0.493, hh * 0.95);
+    }
+  } else {
+    text(gameAnxiousValue, ww * 0.493, hh * 0.95);
+  }
+
+  pop();
   //next task time process
   push();
   rectMode(CORNER);
@@ -500,8 +502,36 @@ function draw() {
   // });
   // text(int(mouseX) + "," + int(mouseY), 50, 50);
   //////////////////////////////////////////////////
-}
+  //show the value change ani
+  if (gameAnxiousValue_post != gameAnxiousValue) {
+    let re = gameAnxiousValue - gameAnxiousValue_post;
+    if (re > 0) {
+      gameAnxiousValue_change = "+" + String(re);
+    } else {
+      gameAnxiousValue_change = String(re);
+    }
+    gameAnxiousValue_change_diaplay_timer = millis();
+  }
+  push();
 
+  if (gameAnxiousValue_change) {
+    let timer = millis() - gameAnxiousValue_change_diaplay_timer;
+    let timerM = map(timer, 0, 1000, 0, 1);
+    fill(220, 20, 20);
+    stroke(255);
+    textSize(70);
+    textAlign(CENTER);
+    if (timer < 1000) {
+      text(gameAnxiousValue_change, width / 2, height * 0.9 - easeInQuart(timerM) * 50);
+    } else {
+      gameAnxiousValue_change = ![];
+    }
+  }
+  pop();
+}
+function easeInQuart(x) {
+  return x * x * x * x;
+}
 class Grid {
   constructor(x, y) {
     this.coor = createVector(x, y);
