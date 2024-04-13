@@ -404,6 +404,12 @@ function draw() {
           // console.log(aev, "cd ends");
         }
       }
+      if (frameCount % 160 < 140) {
+        push();
+        fill(255);
+        text("Click here to cry!", 35, 770, 40);
+        pop();
+      }
 
       // console.log({ gameTaskTimeGap, gameTaskTimeNext });
       break;
@@ -438,6 +444,9 @@ function draw() {
         text("95", ww * 0.48, hh * 0.62);
       } else {
         text("99", ww * 0.48, hh * 0.62);
+      }
+      if (frameCount % 30 < 15) {
+        text("Click to restart!", 392, 568);
       }
 
       // ci.textSize(7);
@@ -641,6 +650,9 @@ function mousePressed() {
       }
       break;
     case "over":
+      if (mouseX < 193 && mouseX > 600 && mouseY < 193 && mouseY > 688) {
+        location.reload();
+      }
       break;
     default:
       break;
