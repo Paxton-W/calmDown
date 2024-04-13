@@ -650,7 +650,7 @@ function mousePressed() {
       }
       break;
     case "over":
-      if (mouseX < 193 && mouseX > 600 && mouseY < 193 && mouseY > 688) {
+      if (mouseX < 600 && mouseX > 192 && mouseY < 688 && mouseY > 192) {
         location.reload();
       }
       break;
